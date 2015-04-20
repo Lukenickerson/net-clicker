@@ -5,7 +5,7 @@
 		,"tip" : "These defensive measures increase the security per node"
 		,"cost" : 8
 		,"costExponent" : 1.1
-		,"nodePointSizePerNode" : 8
+		,"nodePointSizePerNode" : 2
 	},
 	"legit" : {
 		"name" : "Legitimate Cover Business"
@@ -17,16 +17,16 @@
 	"chain" : {
 		"name" : "Cryptochain Storage"
 		,"tip" : "These devices allow you to store more money per node"
-		,"cost" : 18
+		,"cost" : 16
 		,"costExponent" : 1.1
-		,"moneyMaxPerNode" : 64
+		,"moneyMaxPerNode" : 6
 	},
 	"harddrive" : {
 		"name" : "Petabyte Harddrives"
 		,"tip" : "These storage devices allow you to hold more information per node"
 		,"cost" : 20
 		,"costExponent" : 1.1
-		,"infoMaxPerNode" : 16
+		,"infoMaxPerNode" : 6
 	},
 
 	"zeroday" : {
@@ -36,19 +36,12 @@
 		,"costExponent" : 1.2
 		,"espionagePerSecond" : 1
 	},
-	"backups" : {
-		"name" : "Server Backups"
-		,"tip" : "Bonus to security repair/second"
+	"botnet" : {
+		"name" : "Bot-Net"
+		,"tip" : "These zombie computers will amplified your troll's power"
 		,"cost" : 42
 		,"costExponent" : 1.2
-		,"nodePointsPerSecond" : 1
-	},
-	"netsniff" : {
-		"name" : "Network Sniffers"
-		,"tip" : "These programs will listen to network traffic and add info/second/node"
-		,"cost" : 64
-		,"costExponent" : 1.2
-		,"infoPerNode" : 0.5
+		,"damageMultiplier" : 0.2
 	},
 	"coin" : {
 		"name" : "Cryptocoin Miners"
@@ -56,6 +49,20 @@
 		,"cost" : 120
 		,"costExponent" : 1.2
 		,"moneyPerSecond" : 1
+	},
+	"backups" : {
+		"name" : "Server Backups"
+		,"tip" : "Bonus to security repair/second"
+		,"cost" : 142
+		,"costExponent" : 1.2
+		,"nodePointsPerSecond" : 1
+	},
+	"netsniff" : {
+		"name" : "Network Sniffers"
+		,"tip" : "These programs will listen to network traffic and add info/second/node"
+		,"cost" : 164
+		,"costExponent" : 1.2
+		,"infoPerNode" : 0.5
 	},
 	"selfhealing" : {
 		"name" : "Self-Healing Network"

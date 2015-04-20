@@ -64,6 +64,7 @@ RocketBoots.ready(function(){
 	g.NetworkClass = function(selector, startData, inc){
 		console.log("Creating Network", selector, g.cloneDataObject(startData));
 		this.opponent = null;
+		this.isEnemy = (selector == "#enemyNetwork") ? true : false;
 		this.incrementer = inc;
 		this.currencies = inc.currencies;
 		this.$elt = $(selector);
@@ -136,13 +137,14 @@ RocketBoots.ready(function(){
 		return total;
 	}
 	g.NetworkClass.prototype.getMaxHackers = function(){
-		return Math.ceil(this.currencies.nodes.val * 1.5);
+		return Math.ceil(this.currencies.nodes.val);
 	}
 	g.NetworkClass.prototype.getNextHireCost = function(){
-		return (this.getTotalHackers() * 50) + 25;	
+		return (this.getTotalHackers() * 40) + 35;	
 	}
 	g.NetworkClass.prototype.getNodePointsPerNode = function(){
-		return (16 + this.getUpgradeTotal("nodePointSizePerNode"));
+		var base = (this.isEnemy) ? 16 : 8;
+		return (base + this.getUpgradeTotal("nodePointSizePerNode"));
 	}
 	g.NetworkClass.prototype.getNodesVal = function(){
 		this.currencies.nodes.val = Math.ceil(
@@ -157,10 +159,10 @@ RocketBoots.ready(function(){
 		);
 	}
 	g.NetworkClass.prototype.getMoneyMax = function(){
-		return (
+		return (16 + (
 			this.currencies.nodes.val * 
-			(64 + this.getUpgradeTotal("moneyMaxPerNode"))
-		);
+			(16 + this.getUpgradeTotal("moneyMaxPerNode"))
+		));
 	}
 	g.NetworkClass.prototype.ownsUpgrade = function(upgradeKey){
 		return (typeof this.upgradesOwned[upgradeKey] == "number");
@@ -292,17 +294,27 @@ RocketBoots.ready(function(){
 		//console.log("opp", g.cloneDataObject(n.opponent));
 		if (n.opponent != null) {
 			var isOpponentDamaged = (n.opponent.currencies.nodePoints.val < n.opponent.currencies.nodePoints.max);
+			var attackingDamage = (
+				n.opponent.hackers.trolls * 
+				(1 + n.opponent.getUpgradeTotal("damageMultiplier"))
+			);
 			curr.nodePoints.perStep = (
 				n.innate.nodePoints
 				+ n.hackers.sysAdmins 
-				- n.opponent.hackers.trolls
-				+ n.getUpgradeTotal("nodePointsPerSecond")
-				+ (nodesVal * n.getUpgradeTotal("nodePointsPerNode"))
+				- attackingDamage
 			);
+			if (n.hackers.sysAdmins > 0) {
+				curr.nodePoints.perStep += (
+					n.getUpgradeTotal("nodePointsPerSecond")
+					+ (nodesVal * n.getUpgradeTotal("nodePointsPerNode"))
+				);
+			}
+			
 			// get base espionage amount
-			var espionageTransfer = (
-				n.hackers.blackHats + n.getUpgradeTotal("espionagePerSecond")
-			);
+			var espionageTransfer = n.hackers.blackHats;
+			if (n.hackers.blackHats > 0) {
+				espionageTransfer += n.getUpgradeTotal("espionagePerSecond");
+			}
 			// If opponent is not damaged, then get half info
 			if (!isOpponentDamaged) espionageTransfer *= 0.5;
 	
@@ -311,12 +323,17 @@ RocketBoots.ready(function(){
 				,n.opponent.currencies.info.val
 				,infoSpaceLeft
 			);
-			var developmentTransfer = Math.min(
-				n.hackers.developers + n.getUpgradeTotal("developmentPerSecond")
+			// Development
+			var developmentTransfer = n.hackers.developers;
+			if (n.hackers.developers > 0) {
+				developmentTransfer +=  n.getUpgradeTotal("developmentPerSecond");
+			}	
+			developmentTransfer = Math.min(
+				developmentTransfer
 				,curr.info.val
 				,moneySpaceLeft
 			);
-			
+			// Info
 			n.currencies.info.perStep = Math.min((
 				n.innate.info
 				+ espionageTransfer
@@ -395,6 +412,7 @@ RocketBoots.ready(function(){
 		g.enemy = new g.NetworkClass(
 			'#enemyNetwork', g.enemyStartData[level], inc
 		);
+		g.enemy.isEnemy = true;
 		g.connectPlayerAndEnemy();
 		g.enemy.resetValues(false);
 		return g.enemy;
@@ -474,12 +492,13 @@ RocketBoots.ready(function(){
 		var hackAmount = 0;
 		switch(hackerJob){
 			case "sysAdmins": 
-				g.player.currencies.nodePoints.add(1);
-				g.floatText("+1 Security", g.player.$currencyList.find('.nodePoints .num'));
+				hackAmount = 1 + Math.floor(g.player.hackers.sysAdmins/8);
+				g.player.currencies.nodePoints.add(hackAmount);
+				g.floatText("+" + hackAmount + " Security", g.player.$currencyList.find('.nodePoints .num'));
 				g.sounds.play("bling");
 			break;
 			case "blackHats":
-				hackAmount = 1;
+				hackAmount = 1 + Math.floor(g.player.hackers.blackHats/8);
 				if (g.enemy.currencies.info.val >= 1) {
 					var isOpponentDamaged = (g.enemy.currencies.nodePoints.val < g.enemy.currencies.nodePoints.max);
 					if (!isOpponentDamaged) hackAmount *= 0.5;
@@ -491,16 +510,17 @@ RocketBoots.ready(function(){
 				}
 			break;
 			case "trolls": 
-				hackAmount = (-1); // * g.player.hackers.trolls);
-				g.enemy.currencies.nodePoints.add(hackAmount);
+				hackAmount = 1 + Math.floor(g.player.hackers.trolls/8);
+				g.enemy.currencies.nodePoints.add(-1 * hackAmount);
 				g.sounds.play("damage");
-				g.floatText("-1 Security", g.enemy.$currencyList.find('.nodePoints .num'), "neg");
+				g.floatText("-" + hackAmount + " Security", g.enemy.$currencyList.find('.nodePoints .num'), "neg");
 			break;
 			case "developers": 
-				if (g.player.currencies.info.val >= 1) {
-					g.player.currencies.info.add(-1);
-					g.player.currencies.money.add(1);
-					g.floatText("-1 Info: +$1k", g.player.$currencyList.find('.money .num'));
+				hackAmount = 1 + Math.floor(g.player.hackers.developers/8);
+				if (g.player.currencies.info.val >= hackAmount) {
+					g.player.currencies.info.add(-1 * hackAmount);
+					g.player.currencies.money.add(hackAmount);
+					g.floatText("-" + hackAmount + " Info: +$" + hackAmount + "k", g.player.$currencyList.find('.money .num'));
 					g.sounds.play("bling");
 				} else {
 					g.player.currencies.money.add(0.1);

@@ -92,10 +92,10 @@
 			},
 			"hackers" : {
 				"idle" : 0,
-				"sysAdmins" : 40,
-				"blackHats" : 20,
+				"sysAdmins" : 30,
+				"blackHats" : 40,
 				"trolls" : 20,
-				"developers" : 60
+				"developers" : 50
 			}
 		}
 	],
