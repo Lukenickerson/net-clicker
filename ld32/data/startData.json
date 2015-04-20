@@ -1,0 +1,115 @@
+{
+	"enemyStartData" : [
+		{
+			"name" : "Practice Network",
+			"nodeVal" : 1,
+			"innate" : {
+				"info" : 1
+			},
+			"hackers" : {
+				"idle" : 0,
+				"sysAdmins" : 1,
+				"blackHats" : 0,
+				"trolls" : 0,
+				"developers" : 0
+			}
+		},
+		{
+			"name" : "Online Lemonade Store",
+			"nodeVal" : 2,
+			"innate" : {
+				"info" : 2
+			},
+			"hackers" : {
+				"idle" : 0,
+				"sysAdmins" : 2,
+				"blackHats" : 0,
+				"trolls" : 0,
+				"developers" : 1
+			}
+		},
+		{
+			"name" : "Ultra MK Game Devs",
+			"nodeVal" : 5,
+			"innate" : {
+				"info" : 5
+			},
+			"hackers" : {
+				"idle" : 0,
+				"sysAdmins" : 3,
+				"blackHats" : 1,
+				"trolls" : 1,
+				"developers" : 2
+			}			
+		},
+		{
+			"name" : "Elder Bank",
+			"nodeVal" : 12,
+			"innate" : {
+				"info" : 3
+			},
+			"hackers" : {
+				"idle" : 0,
+				"sysAdmins" : 6,
+				"blackHats" : 2,
+				"trolls" : 2,
+				"developers" : 2
+			}			
+		},
+		{
+			"name" : "BrainBook",
+			"nodeVal" : 28,
+			"innate" : {
+				"info" : 12
+			},
+			"hackers" : {
+				"idle" : 0,
+				"sysAdmins" : 8,
+				"blackHats" : 5,
+				"trolls" : 5,
+				"developers" : 10
+			}			
+		},
+		{
+			"name" : "Republic of People",
+			"nodeVal" : 50,
+			"innate" : {
+				"info" : 6
+			},
+			"hackers" : {
+				"idle" : 0,
+				"sysAdmins" : 10,
+				"blackHats" : 20,
+				"trolls" : 15,
+				"developers" : 5
+			}			
+		},
+		{
+			"name" : "10^100 OmniNet",
+			"nodeVal" : 140,
+			"innate" : {
+				"info" : 62
+			},
+			"hackers" : {
+				"idle" : 0,
+				"sysAdmins" : 40,
+				"blackHats" : 20,
+				"trolls" : 20,
+				"developers" : 60
+			}
+		}
+	],
+	"playerStartData" : {
+		"name" : "Your Network",
+		"nodeVal" : 1,
+		"infoVal" : 0,
+		"moneyVal" : 0,
+		"hackers" : {
+			"idle" : 1,
+			"sysAdmins" : 0,
+			"blackHats" : 0,
+			"trolls" : 0,
+			"developers" : 0
+		}
+	}
+}

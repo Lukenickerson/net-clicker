@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Net Clicker</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/rocketboots.css" />
+	<link rel="stylesheet" href="styles/game.css" />
+	<link href='styles/font-contrail-one.css' rel='stylesheet' type='text/css'>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+	<header class="stateHeader goto" data-state="mainmenu">
+		<h1>Net Clicker
+			<span class="subTitle">
+				Incremental/Clicker Game of Hacking and Cyberwar
+			</span>
+		</h1>
+	</header>
+	<div class="state boot">
+		Booting Up
+	</div>	
+	<div class="state preload">
+		<h2>Loading...</h2>
+		<p>If the game fails to load, try refreshing the page.</p>
+	</div>
+	<section class="state mainmenu">
+		<h2>Main Menu</h2>
+		<nav>
+		<ul>
+			<li><button type="button" class="goto non-disk play" data-state="game">
+				Play</button></li>
+			<li><button type="button" class="goto disk has-game continue" data-state="game">
+				Continue</button></li>
+			<li><button type="button" class="goto disk has-game save" data-state="save">
+				Save</button></li>
+			<li><button type="button" class="goto disk new" data-state="new">
+				New</button></li>
+			<li><button type="button" class="goto disk load" data-state="load">
+				Load</button></li>
+			<!--
+			<li><button type="button" class="goto settings" data-state="settings">
+				Settings</button></li>
+			-->
+			<li>
+				<button type="button" class="toggleSound">Toggle Sound 
+					(<span class="onOff">??</span>)</button>
+			</li>
+			<li>
+				<button type="button" class="toggleMusic">Toggle Music 
+					(<span class="onOff">??</span>)</button>
+			</li>
+			<li><button type="button" class="goto help" data-state="help">
+				Help</button></li>
+			<li><button type="button" class="goto credits" data-state="credits">
+				Credits</button></li>
+			<li>
+				<!-- <button type="button" class="goto share" data-state="share">
+				Share</button>
+				-->
+				<a target="_blank" class="share button" 
+					href="http://twitter.com/home?status=Playing%20Net%20Clicker!%20@deathraygames%20#netclicker">
+					Share on Twitter
+				</a>
+			</li>
+		</ul>
+
+		</nav>
+		
+	</section>
+	<section class="state help">
+		<h2>Help</h2>
+		<nav>
+			<button type="button" class="goto" data-state="mainmenu">Back</button>
+		</nav>
+		<p>
+			There are 4 important ratings for your network: Nodes = 
+			the number of computer systems you control. These will go
+			up as you defeat opponents. Security = This is important for
+			staying alive. If a network does not have 100% security, then
+			they are more susceptible to espionage attacks. Info = Information
+			is a type of currency that can be turned into money with development.
+			Money = Cash can be used to purchase more hackers or upgrades.
+		</p>
+		<p>
+			There are 4 hacker jobs: SysAdmins = Keep your security up.
+			Trolls = Attack your opponents security.
+			Black Hats = Steal information from your opponent.
+			Developers = Are responsible for turn the information into
+			products that can be sold. 
+		</p>
+		<p>
+			For help, please see the 
+			<a href="http://ludumdare.com/compo/ludum-dare-32/?action=preview&uid=17861">Ludum Dare entry page</a>
+			or 
+			<a href="http://deathraygames.tumblr.com/search/ldjam">Tumblr #LDJAM</a>.
+		</p>
+	</section>
+	<!--
+	<section class="state settings">
+		<h2>Settings</h2>
+		<nav>
+			<button type="button" class="goto" data-state="mainmenu">Back</button>
+			<button type="button" class="toggleSound">Toggle Sound</button>
+		</nav>
+	</section>
+	-->
+	<section class="state credits">
+		<h2>Credits</h2>
+		<nav>
+			<button type="button" class="goto" data-state="mainmenu">Back</button>
+		</nav>
+		<p>
+			Game Design, Programming, Graphics by Luke Nickerson
+		</p>
+		<p>
+			'Contrail One' font courtesy of Google Fonts.
+		</p>
+		<p>
+			Software: Notepad++, Chrome, Pickle, Bfxr, Bosca Ceoil
+		</p>
+		<p>
+			Recommended Listening: <a target="_blank" href="http://somafm.com/defcon/">Soma fm DEF CON Radio</a>
+		</p>
+		<p>
+			Thanks to testers: Christina, Jeff, Matt
+		</p>
+		<p>
+			<a target="_blank" href="https://twitter.com/deathraygames">Follow on Twitter</a>
+			 | 
+			<a target="_blank" href="http://deathraygames.tumblr.com/">Follow on Tumblr</a>
+		</p>
+
+	</section>
+	<!--
+	<section class="state share">
+		<h2>Share</h2>
+		<nav>
+			<button type="button" class="goto" data-state="mainmenu">Back</button>
+			<button type="button" class="">Tweet on Twitter</button>
+			<button type="button" class="">Email to a friend</button>
+		</nav>
+		<p>
+			Thank you for sharing this game!
+		</p>
+	</section>
+	-->
+
+	<div class="state levelUp">
+		<h2>You Defeated a Network</h2>
+		<p>
+			You absorb the nodes of the vanquished network, and
+			search out a new, more powerful opponent. 
+			<br/>
+			Good luck!
+		</p>
+		<nav>
+			<button type="button" class="goto" data-state="game">Continue</button>
+		</nav>
+	</div>
+
+	
+	<div class="state win">
+		<h2>You Win!</h2>
+		<p>
+			Congratulations, you've defeated all the other networks!
+		</p>
+		<p>
+			Brag about your win on Twitter!
+		</p>
+		<p>
+			Refresh the page to start over.
+		</p>
+		<nav>
+			<button type="button" class="refreshPage">Start Over</button>
+			<button type="button" class="goto" data-state="mainmenu">Main Menu</button>
+		</nav>
+	</div>
+	
+	<div class="state lose">
+		<h2>You Lose</h2>
+		<p>
+			Next time try making sure you have
+			enough hackers hired and upgrades
+			before you move on to the next
+			opponent.
+		</p>
+		<p>
+			Refresh the page to start over.
+		</p>
+		<nav>
+			<button type="button" class="refreshPage">Start Over</button>
+			<button type="button" class="goto" data-state="mainmenu">Main Menu</button>
+		</nav>		
+	</div>
+	
+	<div class="state game">
+		<h2>Game</h2>
+		<nav class="tabs">
+			<button type="button" class="toggleGameView enemyGameView selected">Enemy</button>
+			<button type="button" class="toggleGameView upgradesGameView">Upgrades</button>
+		</nav>
+		<div id="enemyNetwork" class="network col">
+			<h1 class="networkName">Bad Network</h1>
+			<div class="subTitle">
+				Rival Network Level <span class="level">1</span>
+			</div>
+			<ul class="currencyList">
+				<!-- Fill with JavaScript -->
+			</ul>
+			<div class="hackers">
+				<ul>
+					<li class="sysAdmins">
+						<span class="num">#</span>
+						SysAdmins
+					</li>
+					<li class="blackHats">
+						<span class="num">#</span>
+						Black Hats
+					</li>
+					<li class="trolls">
+						<span class="num">#</span>
+						Trolls
+					</li>
+					<li class="developers">
+						<span class="num">#</span>
+						Developers
+					</li>
+				</ul>
+			</div>
+		</div>		
+		<div id="playerNetwork" class="network col">
+			<h1>Your Network</h1>
+			<ul class="currencyList">
+				<!-- Fill with JavaScript -->
+			</ul>
+			<div id="hackers" class="hackers">
+				<!-- <button type="button" class="remove">-</button> -->
+				<div class="hackerJob idle" data-hackerjob="idle">
+					<div class="hackersBar">
+						<span class="title">Hackers</span>
+						<span class="num">#</span> idle
+						/<span class="total">#</span>
+						/<span class="max">#</span>
+						<span class="cost">
+							<span class="units">$</span>
+							<span class="costVal"></span>
+							<span class="units">k</span>
+						</span>
+					</div>
+					<button type="button" class="add">+</button>
+				</div>
+				<ul>
+					<li class="hackerJob sysAdmins" data-hackerjob="sysAdmins">
+						<button type="button" class="remove">-</button>
+						<button type="button" class="hack">
+							<span class="num">#</span>
+							SysAdmins
+							<span class="jobDesc">Secure/Repair Nodes</span>
+						</button>
+						<button type="button" class="add">+</button>
+					</li>
+					<li class="hackerJob trolls" data-hackerjob="trolls">
+						<button type="button" class="remove">-</button>
+						<button type="button" class="hack">
+							<span class="num">#</span> 
+							Trolls
+							<span class="jobDesc">Attack Rival Nodes</span>
+						</button>
+						<button type="button" class="add">+</button>
+					</li>
+					<li class="hackerJob blackHats" data-hackerjob="blackHats">
+						<button type="button" class="remove">-</button>
+						<button type="button" class="hack">
+							<span class="num">#</span>
+							Black Hats
+							<span class="jobDesc">Espionage - Steal Info</span>
+						</button>
+						<button type="button" class="add">+</button>
+					</li>
+					<li class="hackerJob developers" data-hackerjob="developers">
+						<button type="button" class="remove">-</button>
+						<button type="button" class="hack">
+							<span class="num">#</span>
+							Developers
+							<span class="jobDesc">Create &amp; Sell Products</span>
+						</button>
+						<button type="button" class="add">+</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="upgrades" class="upgrades col">
+			<h1>Upgrades</h1>
+			<ul class="upgradesList">
+				<!-- Populate with JavaScript -->
+			</ul>
+		</div>
+		<div class="dev">
+			<h3>Cheats</h3>
+			<button type="button" class="giveMoney">Free $100k</button>
+			<button type="button" class="goto" data-state="levelUp">Level up</button>
+			<button type="button" class="goto" data-state="win">Win</button>
+			<button type="button" class="goto" data-state="lose">Lose</button>
+			
+		</div>
+		<nav class="bottom">
+			<button type="button" class="goto" data-state="mainmenu">Main Menu</button>
+		</nav>
+	</div>
+
+	
+	<footer class="stateFooter">
+		<p><a href="../index.html">Post-Compo Version</a></p>
+		Developed in 48 hours for the
+		<a href="http://ludumdare.com/compo/category/ld-32/">
+			Ludum Dare 32 game jam
+		</a>
+		<br />Theme: "An Unconventional Weapon"
+		<br>
+		by Luke Nickerson 
+		<a href="https://twitter.com/deathraygames">@deathraygames</a>
+		<br>
+		using the
+		<a href="https://github.com/Lukenickerson/rocketboots" 
+			target="_blank"
+			title="RocketBoots - Starter Kit for Web Games - visit the GitHub repo">
+			RocketBoots web game starter kit - alpha-v0.1
+		</a>
+		<br>
+		&copy; 2015
+	</footer>
+
+
+<script src="scripts/rocketboots/core.js"></script>
+<script src="scripts/game.js"></script>
+
+
+</body>
+</html>

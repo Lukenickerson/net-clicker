@@ -1,0 +1,82 @@
+{
+"upgrades" : {
+	"firewall" : {
+		"name" : "Firewalls"
+		,"tip" : "These defensive measures increase the security per node"
+		,"cost" : 8
+		,"costExponent" : 1.1
+		,"nodePointSizePerNode" : 8
+	},
+	"legit" : {
+		"name" : "Legitimate Cover Business"
+		,"tip" : "Bonus to converting info into money"
+		,"cost" : 9
+		,"costExponent" : 1.1
+		,"developmentPerSecond" : 1
+	},
+	"chain" : {
+		"name" : "Cryptochain Storage"
+		,"tip" : "These devices allow you to store more money per node"
+		,"cost" : 18
+		,"costExponent" : 1.1
+		,"moneyMaxPerNode" : 64
+	},
+	"harddrive" : {
+		"name" : "Petabyte Harddrives"
+		,"tip" : "These storage devices allow you to hold more information per node"
+		,"cost" : 20
+		,"costExponent" : 1.1
+		,"infoMaxPerNode" : 16
+	},
+
+	"zeroday" : {
+		"name" : "Zero-Day Vulnerabilities"
+		,"tip" : "Bonus to stealing information for your opponent (espionage/second)"
+		,"cost" : 42
+		,"costExponent" : 1.2
+		,"espionagePerSecond" : 1
+	},
+	"backups" : {
+		"name" : "Server Backups"
+		,"tip" : "Bonus to security repair/second"
+		,"cost" : 42
+		,"costExponent" : 1.2
+		,"nodePointsPerSecond" : 1
+	},
+	"netsniff" : {
+		"name" : "Network Sniffers"
+		,"tip" : "These programs will listen to network traffic and add info/second/node"
+		,"cost" : 64
+		,"costExponent" : 1.2
+		,"infoPerNode" : 0.5
+	},
+	"coin" : {
+		"name" : "Cryptocoin Miners"
+		,"tip" : "These machines provide a small amount of money/second"
+		,"cost" : 120
+		,"costExponent" : 1.2
+		,"moneyPerSecond" : 1
+	},
+	"selfhealing" : {
+		"name" : "Self-Healing Network"
+		,"tip" : "Bonus to security repair/node/second"
+		,"cost" : 256
+		,"costExponent" : 1.2
+		,"nodePointsPerNode" : 0.5
+	},
+	"isp" : {
+		"name" : "ISP Investments"
+		,"tip" : "Buying stakes in Internet Service Provider companies gives you access to their data: will yield extra info/node/second"
+		,"cost" : 1200
+		,"costExponent" : 1.1
+		,"infoPerNode" : 0.5
+	},
+	"investment" : {
+		"name" : "Corporate Investments"
+		,"tip" : "Buying shares of big companies will yield extra money/second"
+		,"cost" : 1600
+		,"costExponent" : 1.1
+		,"moneyPerSecond" : 10
+	}
+}
+}
