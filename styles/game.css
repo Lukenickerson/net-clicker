@@ -83,7 +83,9 @@ nav button,
 		background: #ffff99;
 	}
 
-
+.help-text {
+	text-align: left;
+}
 
 /* ==== Cyberwar ==== */
 

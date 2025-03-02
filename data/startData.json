@@ -8,6 +8,20 @@
 			},
 			"hackers" : {
 				"idle" : 0,
+				"sysAdmins" : 0.5,
+				"blackHats" : 0,
+				"trolls" : 0,
+				"developers" : 0
+			}
+		},
+		{
+			"name" : "Forgotten Blog",
+			"nodeVal" : 2,
+			"innate" : {
+				"info" : 2
+			},
+			"hackers" : {
+				"idle" : 0,
 				"sysAdmins" : 1,
 				"blackHats" : 0,
 				"trolls" : 0,
@@ -16,7 +30,7 @@
 		},
 		{
 			"name" : "Online Lemonade Store",
-			"nodeVal" : 2,
+			"nodeVal" : 3,
 			"innate" : {
 				"info" : 2
 			},

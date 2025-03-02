@@ -38,7 +38,7 @@
 	},
 	"botnet" : {
 		"name" : "Bot-Net"
-		,"tip" : "These zombie computers will amplified your troll's power"
+		,"tip" : "These zombie computers will amplify your troll's power"
 		,"cost" : 42
 		,"costExponent" : 1.2
 		,"damageMultiplier" : 0.2
