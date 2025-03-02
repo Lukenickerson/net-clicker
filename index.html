@@ -28,74 +28,78 @@
 	<section class="state mainmenu">
 		<h2>Main Menu</h2>
 		<nav>
-		<ul>
-			<li><button type="button" class="goto non-disk play" data-state="game">
-				Play</button></li>
-			<li><button type="button" class="goto disk has-game continue" data-state="game">
-				Continue</button></li>
-			<li><button type="button" class="goto disk has-game save" data-state="save">
-				Save</button></li>
-			<li><button type="button" class="goto disk new" data-state="new">
-				New</button></li>
-			<li><button type="button" class="goto disk load" data-state="load">
-				Load</button></li>
-			<!--
-			<li><button type="button" class="goto settings" data-state="settings">
-				Settings</button></li>
-			-->
-			<li>
-				<button type="button" class="toggleSound">Toggle Sound 
-					(<span class="onOff">??</span>)</button>
-			</li>
-			<li>
-				<button type="button" class="toggleMusic">Toggle Music 
-					(<span class="onOff">??</span>)</button>
-			</li>
-			<li><button type="button" class="goto help" data-state="help">
-				Help</button></li>
-			<li><button type="button" class="goto credits" data-state="credits">
-				Credits</button></li>
-			<li>
-				<!-- <button type="button" class="goto share" data-state="share">
-				Share</button>
+			<ul>
+				<li><button type="button" class="goto non-disk play" data-state="game">
+					Play</button></li>
+				<li><button type="button" class="goto disk has-game continue" data-state="game">
+					Continue</button></li>
+				<li><button type="button" class="goto disk has-game save" data-state="save">
+					Save</button></li>
+				<li><button type="button" class="goto disk new" data-state="new">
+					New</button></li>
+				<li><button type="button" class="goto disk load" data-state="load">
+					Load</button></li>
+				<!--
+				<li><button type="button" class="goto settings" data-state="settings">
+					Settings</button></li>
 				-->
-				<a target="_blank" class="share button" 
-					href="http://twitter.com/home?status=Playing%20Net%20Clicker!%20@deathraygames%20#netclicker">
-					Share on Twitter
-				</a>
-			</li>
-		</ul>
-
+				<li>
+					<button type="button" class="toggleSound">Toggle Sound 
+						(<span class="onOff">??</span>)</button>
+				</li>
+				<li>
+					<button type="button" class="toggleMusic">Toggle Music 
+						(<span class="onOff">??</span>)</button>
+				</li>
+				<li><button type="button" class="goto help" data-state="help">
+					Help</button></li>
+				<li><button type="button" class="goto credits" data-state="credits">
+					Credits</button></li>
+				<li>
+					<!-- <button type="button" class="goto share" data-state="share">
+					Share</button>
+					-->
+					<a target="_blank" class="share button" 
+						href="https://bsky.app/intent/compose?text=NetClicker">
+						Share on Bluesky
+					</a>
+				</li>
+			</ul>
+			<a target="_blank" href="https://bsky.app/profile/morphgames.bsky.social">Follow on Bluesky</a>
+					| 
+				   <a target="_blank" href="https://morph.games/">Morph.games</a>
 		</nav>
-		
 	</section>
 	<section class="state help">
 		<h2>Help</h2>
 		<nav>
 			<button type="button" class="goto" data-state="mainmenu">Back</button>
 		</nav>
-		<p>
-			There are 4 important ratings for your network: Nodes = 
-			the number of computer systems you control. These will go
-			up as you defeat opponents. Security = This is important for
-			staying alive. If a network does not have 100% security, then
-			they are more susceptible to espionage attacks. Info = Information
-			is a type of currency that can be turned into money with development.
-			Money = Cash can be used to purchase more hackers or upgrades.
-		</p>
-		<p>
-			There are 4 hacker jobs: SysAdmins = Keep your security up.
-			Trolls = Attack your opponents security.
-			Black Hats = Steal information from your opponent.
-			Developers = Are responsible for turn the information into
-			products that can be sold. 
-		</p>
-		<p>
-			For help, please see the 
-			<a href="http://ludumdare.com/compo/ludum-dare-32/?action=preview&uid=17861">Ludum Dare entry page</a>
-			or 
-			<a href="http://deathraygames.tumblr.com/search/ldjam">Tumblr #LDJAM</a>.
-		</p>
+		<div class="help-text">
+			<p>
+				There are 4 important ratings for your network:
+			</p>
+			<ul>
+				<li>Nodes = 
+				the number of computer systems you control. These will go
+				up as you defeat opponents.</li>
+				<li>Security = This is important for
+				staying alive. If a network does not have 100% security, then
+				they are more susceptible to espionage attacks.</li>
+				<li>Info = Information
+				is a type of currency that can be turned into money with development.</li>
+				<li>Money = Cash can be used to purchase more hackers or upgrades.</li>
+			</ul>
+			<p>There are 4 hacker jobs:</p>
+			<ul>
+				<li>SysAdmins = Keep your security up.</li>
+				<li>Trolls = Attack your opponents security.</li>
+				<li>Black Hats = Steal information from your opponent.</li>
+				<li>Developers = Are responsible for turn the information into
+				products that can be sold.</li>
+			</ul>
+			<p>The game is not saved, so don't refresh, and keep your browser window open.</p>
+		</div>
 	</section>
 	<!--
 	<section class="state settings">
@@ -126,26 +130,7 @@
 		<p>
 			Thanks to testers: Christina, Jeff, Matt
 		</p>
-		<p>
-			<a target="_blank" href="https://twitter.com/deathraygames">Follow on Twitter</a>
-			 | 
-			<a target="_blank" href="http://deathraygames.tumblr.com/">Follow on Tumblr</a>
-		</p>
-
 	</section>
-	<!--
-	<section class="state share">
-		<h2>Share</h2>
-		<nav>
-			<button type="button" class="goto" data-state="mainmenu">Back</button>
-			<button type="button" class="">Tweet on Twitter</button>
-			<button type="button" class="">Email to a friend</button>
-		</nav>
-		<p>
-			Thank you for sharing this game!
-		</p>
-	</section>
-	-->
 
 	<div class="state levelUp">
 		<h2>You Defeated a Network</h2>
@@ -167,7 +152,7 @@
 			Congratulations, you've defeated all the other networks!
 		</p>
 		<p>
-			Brag about your win on Twitter!
+			Brag about your win on social media!
 		</p>
 		<p>
 			Refresh the page to start over.
@@ -303,7 +288,6 @@
 			<button type="button" class="goto" data-state="levelUp">Level up</button>
 			<button type="button" class="goto" data-state="win">Win</button>
 			<button type="button" class="goto" data-state="lose">Lose</button>
-			
 		</div>
 		<nav class="bottom">
 			<button type="button" class="goto" data-state="mainmenu">Main Menu</button>
@@ -312,39 +296,15 @@
 
 	
 	<footer class="stateFooter">
-		<a href="ld32/">Originally developed</a> in 48 hours for the
-		<a href="http://ludumdare.com/compo/category/ld-32/">
+		<a href="ld32/">Originally developed in 48 hours for the
 			Ludum Dare 32 game jam
 		</a>
 		<br />Theme: "An Unconventional Weapon"
-
-		<br>
-		by Luke Nickerson 
-		<a href="https://twitter.com/deathraygames">@deathraygames</a>
-		<br>
-		using the
-		<a href="https://github.com/Lukenickerson/rocketboots" 
-			target="_blank"
-			title="RocketBoots - Starter Kit for Web Games - visit the GitHub repo">
-			RocketBoots web game starter kit - alpha-v0.1
-		</a>
-		<br>
-		&copy; 2015
+		<br>&copy; 2015-2025 Luke Nickerson
 	</footer>
-
 
 <script src="scripts/rocketboots/core.js"></script>
 <script src="scripts/game.js"></script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-7118348-1', 'deathraygames.com');
-  ga('send', 'pageview');
-</script>
-
 
 </body>
 </html>
